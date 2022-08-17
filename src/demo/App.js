@@ -1,9 +1,12 @@
 import './css/App.css';
 import Lib from './../lib';
+import {Input} from './../lib';
 
 class App {
   constructor(){
     let libInstance = new Lib();
+    let input = libInstance.getReference();
+    console.log(input);
     console.log("Demo loaded!", libInstance);
     this.demoArrowMethod();
   }
