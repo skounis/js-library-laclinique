@@ -1,6 +1,5 @@
 import './css/App.css';
 import Lib from './../lib';
-import {Input} from './../lib';
 
 class App {
   constructor(){
