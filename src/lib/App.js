@@ -1,15 +1,15 @@
 import './css/App.css';
 
-class Reference {  
+class Reference {
   /**
    * Taux d'inflation		2.00%	
    */
-  inflationRate = 0.02; 
+  inflationRate = 0.02;
 
   /**
    * Début Prestation RRQ	65 ans	1208.26	par mois
    */
-  startBenefitAge = 65; 
+  startBenefitAge = 65;
   startBenefitPerMonth = 1208.26;
 
   /**
@@ -26,7 +26,7 @@ class Reference {
    */
   returnRateSafe = 0.04;
   returnRateModerate = 0.06;
-  returnReteBold = 0.08;
+  returnRateBold = 0.08;
 
   /**
    * Durée de la rente 	à 	85	ans
@@ -34,11 +34,11 @@ class Reference {
   durationAge = 85;
 }
 
-class Input {  
+class Input {
   /**
    * Client
    */
-  client = 'John Smith'; 
+  client = 'John Smith';
 
   /**
    * Combien avez-vous de côté
@@ -56,9 +56,9 @@ class Input {
   annualIncome = 68000 * 0.7
 }
 
-class inflation {
+class Inflation {
 
-  constructor(reference, input){
+  constructor(reference, input) {
     this.reference = reference;
     this.input = input;
   }
@@ -68,7 +68,7 @@ class inflation {
   adjustedIncome = () => {
     // =E7*(1+'Informations de base'!C4)^(65-Calculs!E6)
     const value = this.input.annualIncome * Math.pow(1 + this.reference.inflationRate, 65 - this.input.age)
-    return Math.round(value)
+    return value
   }
 
   /**
@@ -76,8 +76,8 @@ class inflation {
    */
   stateBenefits = () => {
     // =('Informations de base'!C6+'Informations de base'!C7)*12*(1+'Informations de base'!C4)^(65-Calculs!E6)
-    const value = (this.reference.startBenefitPerMonth + this.reference.benefitSVPerMonth) * 12 * Math.pow(1 + this.reference.inflationRate, 65 - this.input.age) 
-    return Math.round(value)
+    const value = (this.reference.startBenefitPerMonth + this.reference.benefitSVPerMonth) * 12 * Math.pow(1 + this.reference.inflationRate, 65 - this.input.age)
+    return value
   }
 
   /**
@@ -87,14 +87,58 @@ class inflation {
     return this.adjustedIncome() - this.stateBenefits();
   }
 }
+
+class Capital {
+
+  constructor(reference, finance) {
+    this.reference = reference;
+    this.finance = finance;
+  }
+
+  /**
+   * Capital à accumuler Prudent
+   * @returns 
+   */
+  safe = () => {
+    // =(E$14/'Informations de base'!C10)*(1-(1/(1+'Informations de base'!C10)^(100-65)))
+    const finance = this.finance;
+    const rate = this.reference.returnRateSafe;
+    const value = (finance / rate) * (1 - ( 1 / Math.pow(1 + rate, 100-65) ))
+    return value
+  }
+
+  /**
+   * Capital à accumuler Modéré
+   * @returns 
+   */
+  moderate = () => {
+    const finance = this.finance;
+    const rate = this.reference.returnRateModerate;
+    const value = (finance / rate) * (1 - ( 1 / Math.pow(1 + rate, 100-65) ))
+    return value
+  }
+
+  /**
+   * Capital à accumuler Audacieu
+   * @returns 
+   */
+  bold = () => {
+    const finance = this.finance;
+    const rate = this.reference.returnRateBold;
+    const value = (finance / rate) * (1 - ( 1 / Math.pow(1 + rate, 100-65) ))
+    return value
+  }
+
+}
 class App {
   myVar = true;
 
-  constructor(){
+  constructor() {
     const { myArrowMethod, myVar } = this;
     console.log("Lib constructor called", myVar);
     myArrowMethod();
-    this.inflation = new inflation(this.getReference(), this.getInput());
+    this.inflation = new Inflation(this.getReference(), this.getInput());
+    this.capital = new Capital(this.getReference(), this.inflation.finance());
   }
 
   myArrowMethod = () => {
