@@ -27,17 +27,27 @@ it('confirms the default input values', () => {
 
 it('calulates the adjustedIncome', () => {
   const v = new App().inflation.adjustedIncome()
-  expect(v).toBe(70731);
+  expect(Math.round(v)).toBe(70731);
 })
 
 it('calulates the stateBenefits', () => {
   const v = new App().inflation.stateBenefits()
-  expect(v).toBe(32872);
+  expect(Math.round(v)).toBe(32872);
 })
 
 
 it('calulates the finance', () => {
   const v = new App().inflation.finance()
-  expect(v).toBe(37859);
+  expect(Math.round(v)).toBe(37859);
+})
+
+
+it('calulates the capital', () => {
+  const s = new App().capital.safe()
+  const m = new App().capital.moderate()
+  const b = new App().capital.bold()
+  expect(Math.round(s)).toBe(706616);
+  expect(Math.round(m)).toBe(548883);
+  expect(Math.round(b)).toBe(441226); 
 })
 
