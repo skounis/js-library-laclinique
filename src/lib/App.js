@@ -130,6 +130,91 @@ class Capital {
   }
 
 }
+
+class Report {
+  KEYS =  {
+    ANNUAL_INCOME: 'ANNUAL_INCOME',
+    CURRENT_ASSET: 'CURRENT_ASSET',
+    ASSET_AT_AGE: 'ASSET_AT_AGE',
+    TARGET_CAPITAL: 'TARGET_CAPITAL',
+    MONTHLY_INVESTMENT: 'MONTHLY_INVESTMENT'
+  }
+  constructor(reference, input, inflation, capital) {    
+    this.reference = reference;
+    this.input = input;
+    this.inflation = inflation;
+    this.capital = capital;
+  }
+  
+  /**
+   * Versement annuel pour accumuler
+   * Investisseur prudent
+   * @returns 
+   */
+     safe = () => {
+      const annualIncome = this.inflation.adjustedIncome();
+      const currentAsset = this.input.capital;
+      // =E29*(1+'Informations de base'!C10)^(65-Calculs!E6)
+      const assetAtAge = currentAsset * Math.pow(1 + this.reference.returnRateSafe ,  65 - this.input.age);
+      const targetCapital = this.capital.safe();
+      // =('Informations de base'!C10/12*(Calculs!E31-E30)) / ( 1-(1+'Informations de base'!C10/12)^( (65-E6)*12 ) )*-1
+      const monthlyRate = this.reference.returnRateSafe / 12;
+      const monthlyInvestment = (monthlyRate * (targetCapital - assetAtAge)) / (1 - Math.pow((1 + monthlyRate) , (65 - this.input.age) * 12) ) * -1
+      return {
+        ANNUAL_INCOME: annualIncome,
+        CURRENT_ASSET: currentAsset,
+        ASSET_AT_AGE: assetAtAge,
+        TARGET_CAPITAL: targetCapital,
+        MONTHLY_INVESTMENT: monthlyInvestment
+      }
+    }
+
+  /**
+   * Versement annuel pour accumuler
+   * Investisseur modéré
+   * @returns 
+   */
+    moderate = () => {
+      const annualIncome = this.inflation.adjustedIncome();
+      const currentAsset = this.input.capital;
+      // =E29*(1+'Informations de base'!C10)^(65-Calculs!E6)
+      const assetAtAge = currentAsset * Math.pow(1 + this.reference.returnRateModerate ,  65 - this.input.age);
+      const targetCapital = this.capital.moderate();
+      // =('Informations de base'!C10/12*(Calculs!E31-E30)) / ( 1-(1+'Informations de base'!C10/12)^( (65-E6)*12 ) )*-1
+      const monthlyRate = this.reference.returnRateModerate / 12;
+      const monthlyInvestment = (monthlyRate * (targetCapital - assetAtAge)) / (1 - Math.pow((1 + monthlyRate) , (65 - this.input.age) * 12) ) * -1
+      return {
+        ANNUAL_INCOME: annualIncome,
+        CURRENT_ASSET: currentAsset,
+        ASSET_AT_AGE: assetAtAge,
+        TARGET_CAPITAL: targetCapital,
+        MONTHLY_INVESTMENT: monthlyInvestment
+      }
+    }
+
+  /**
+   * Versement annuel pour accumuler
+   * Investisseur Audacieu
+   * @returns 
+   */
+   bold = () => {
+    const annualIncome = this.inflation.adjustedIncome();
+    const currentAsset = this.input.capital;
+    // =E29*(1+'Informations de base'!C10)^(65-Calculs!E6)
+    const assetAtAge = currentAsset * Math.pow(1 + this.reference.returnRateBold ,  65 - this.input.age);
+    const targetCapital = this.capital.bold();
+    // =('Informations de base'!C10/12*(Calculs!E31-E30)) / ( 1-(1+'Informations de base'!C10/12)^( (65-E6)*12 ) )*-1
+    const monthlyRate = this.reference.returnRateBold / 12;
+    const monthlyInvestment = (monthlyRate * (targetCapital - assetAtAge)) / (1 - Math.pow((1 + monthlyRate) , (65 - this.input.age) * 12) ) * -1
+    return {
+      ANNUAL_INCOME: annualIncome,
+      CURRENT_ASSET: currentAsset,
+      ASSET_AT_AGE: assetAtAge,
+      TARGET_CAPITAL: targetCapital,
+      MONTHLY_INVESTMENT: monthlyInvestment
+    }
+  }    
+}
 class App {
   myVar = true;
 
@@ -139,6 +224,7 @@ class App {
     myArrowMethod();
     this.inflation = new Inflation(this.getReference(), this.getInput());
     this.capital = new Capital(this.getReference(), this.inflation.finance());
+    this.report = new Report(this.getReference(), this.getInput(), this.inflation, this.capital)
   }
 
   myArrowMethod = () => {
