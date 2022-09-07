@@ -2,7 +2,7 @@ import './css/App.css';
 import Lib from './../lib';
 
 class App {
-  constructor(){
+  constructor() {
     let libInstance = new Lib();
     let input = libInstance.getReference();
     console.log(input);

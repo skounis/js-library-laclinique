@@ -48,7 +48,7 @@ it('calulates the capital', () => {
   const b = new App().capital.bold()
   expect(Math.round(s)).toBe(706616);
   expect(Math.round(m)).toBe(548883);
-  expect(Math.round(b)).toBe(441226); 
+  expect(Math.round(b)).toBe(441226);
 })
 
 it('collects the report', () => {
