@@ -5,13 +5,13 @@ class App {
   constructor() {
     let libInstance = new Lib();
     let input = libInstance.getReference();
-    console.log(input);
-    console.log("Demo loaded!", libInstance);
+    // console.log(input);
+    // console.log("Demo loaded!", libInstance);
     this.demoArrowMethod();
   }
 
   demoArrowMethod = () => {
-    console.log("Arrow methods will work");
+    // console.log("Arrow methods will work");
   }
 }
 

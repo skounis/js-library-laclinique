@@ -220,7 +220,7 @@ class App {
 
   constructor() {
     const { myArrowMethod, myVar } = this;
-    console.log("Lib constructor called", myVar);
+    // console.log("Lib constructor called", myVar);
     myArrowMethod();
     this.inflation = new Inflation(this.getReference(), this.getInput());
     this.capital = new Capital(this.getReference(), this.inflation.finance());
@@ -228,7 +228,7 @@ class App {
   }
 
   myArrowMethod = () => {
-    console.log("Arrow method fired");
+    // console.log("Arrow method fired");
   }
 
   getReference = () => {

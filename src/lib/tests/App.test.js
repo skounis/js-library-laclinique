@@ -54,7 +54,6 @@ it('calulates the capital', () => {
 it('collects the report', () => {
   const a = new App();
   const s = a.report.safe()
-  console.log(s)
   expect(Math.round(s[a.report.KEYS.ANNUAL_INCOME])).toBe(70731);
   expect(Math.round(s[a.report.KEYS.CURRENT_ASSET])).toBe(50000);
   expect(Math.round(s[a.report.KEYS.ASSET_AT_AGE])).toBe(109556);
@@ -62,7 +61,6 @@ it('collects the report', () => {
   expect(Math.round(s[a.report.KEYS.MONTHLY_INVESTMENT])).toBe(1628);
 
   const m = a.report.moderate()
-  console.log(m)
   expect(Math.round(m[a.report.KEYS.ANNUAL_INCOME])).toBe(70731);
   expect(Math.round(m[a.report.KEYS.CURRENT_ASSET])).toBe(50000);
   expect(Math.round(m[a.report.KEYS.ASSET_AT_AGE])).toBe(160357);
@@ -70,10 +68,15 @@ it('collects the report', () => {
   expect(Math.round(m[a.report.KEYS.MONTHLY_INVESTMENT])).toBe(841);
 
   const b = a.report.bold()
-  console.log(b)
   expect(Math.round(b[a.report.KEYS.ANNUAL_INCOME])).toBe(70731);
   expect(Math.round(b[a.report.KEYS.CURRENT_ASSET])).toBe(50000);
   expect(Math.round(b[a.report.KEYS.ASSET_AT_AGE])).toBe(233048);
   expect(Math.round(b[a.report.KEYS.TARGET_CAPITAL])).toBe(441226);
   expect(Math.round(b[a.report.KEYS.MONTHLY_INVESTMENT])).toBe(353);
+
+
+  console.log('Reports\n==========\n\nSafe:\n', s, 
+  '\n\nModerate:\n', m,
+  '\n\nBold:\n', b
+  )
 })
