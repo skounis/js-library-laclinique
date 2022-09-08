@@ -218,24 +218,27 @@ class Report {
 class App {
   myVar = true;
 
-  constructor() {
+  constructor(reference = null, input = null) {
     const { myArrowMethod, myVar } = this;
     // console.log("Lib constructor called", myVar);
     myArrowMethod();
-    this.inflation = new Inflation(this.getReference(), this.getInput());
-    this.capital = new Capital(this.getReference(), this.inflation.finance());
-    this.report = new Report(this.getReference(), this.getInput(), this.inflation, this.capital)
+
+    reference = reference || App.GetReference();
+    input = input || App.GetInput();
+    this.inflation = new Inflation(reference, input);
+    this.capital = new Capital(reference, this.inflation.finance());
+    this.report = new Report(reference, input, this.inflation, this.capital)
   }
 
   myArrowMethod = () => {
     // console.log("Arrow method fired");
   }
 
-  getReference = () => {
+  static GetReference = () => {
     return new Reference();
   }
 
-  getInput = () => {
+  static GetInput = () => {
     return new Input();
   }
 }
