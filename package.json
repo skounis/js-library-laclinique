@@ -12,7 +12,8 @@
     "postinstall": "node bin/postinstall",
     "prepare": "npm run build",
     "trypublish": "npm publish || true",
-    "testdemo": "cd demo && npx http-server ."
+    "testdemo": "cd demo && npx http-server .",
+    "testlib": "npx http-server ."
   },
   "repository": {
     "type": "git",

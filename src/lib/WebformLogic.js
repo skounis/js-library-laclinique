@@ -1,4 +1,4 @@
-import './css/App.css';
+import './css/WebformLogic.css';
 
 class Reference {
   /**
@@ -215,7 +215,8 @@ class Report {
     }
   }
 }
-class App {
+
+class WebformLogic {
   myVar = true;
 
   constructor(reference = null, input = null) {
@@ -223,8 +224,8 @@ class App {
     // console.log("Lib constructor called", myVar);
     myArrowMethod();
 
-    reference = reference || App.GetReference();
-    input = input || App.GetInput();
+    reference = reference || WebformLogic.GetReference();
+    input = input || WebformLogic.GetInput();
     this.inflation = new Inflation(reference, input);
     this.capital = new Capital(reference, this.inflation.finance());
     this.report = new Report(reference, input, this.inflation, this.capital)
@@ -243,4 +244,4 @@ class App {
   }
 }
 
-export default App;
+export default WebformLogic;

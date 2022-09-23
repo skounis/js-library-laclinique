@@ -1,2 +1,2 @@
-import App from './App';
-export default App;
+import WebformLogic from './WebformLogic';
+export default WebformLogic;
