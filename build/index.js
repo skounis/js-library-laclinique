@@ -1,6 +1,6 @@
 /*!
  * 
- *   @skounis/js-library-laclinique v0.0.3
+ *   @skounis/js-library-laclinique v0.0.4
  *   https://github.com/morethanthemes/mtp-lacliniquefinanciere-webform-calculations-w36873345
  *
  *   Copyright (c) Stavros Kounis (https://github.com/skounis)
