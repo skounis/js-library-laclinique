@@ -1,1 +1,0 @@
-{"version":3,"file":"index.css","mappings":"AAAA,KACE,UACF,CAEA,WAEE,cACF","sources":["../lib/css/App.css"],"sourcesContent":["body {\n  color: black;\n}\n\nfieldset > p {          \n  margin: 0;\n  margin-top: 1em;\n}"],"names":[],"sourceRoot":""}
