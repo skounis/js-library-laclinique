@@ -1,6 +1,6 @@
 {
   "name": "@skounis/js-library-laclinique",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Javascript Starter Kit for building libraries",
   "main": "build/index.js",
   "scripts": {
