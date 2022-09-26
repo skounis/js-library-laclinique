@@ -54,25 +54,25 @@ it('calulates the capital', () => {
 it('collects the report with default values', () => {
   const a = new WebformLogic();
   const s = a.report.safe()
-  expect(Math.round(s[a.report.KEYS.ANNUAL_INCOME])).toBe(70731);
-  expect(Math.round(s[a.report.KEYS.CURRENT_ASSET])).toBe(50000);
-  expect(Math.round(s[a.report.KEYS.ASSET_AT_AGE])).toBe(109556);
-  expect(Math.round(s[a.report.KEYS.TARGET_CAPITAL])).toBe(706616);
-  expect(Math.round(s[a.report.KEYS.MONTHLY_INVESTMENT])).toBe(1628);
+  expect(Math.round(s[WebformLogic.REPORT_KEYS.ANNUAL_INCOME])).toBe(70731);
+  expect(Math.round(s[WebformLogic.REPORT_KEYS.CURRENT_ASSET])).toBe(50000);
+  expect(Math.round(s[WebformLogic.REPORT_KEYS.ASSET_AT_AGE])).toBe(109556);
+  expect(Math.round(s[WebformLogic.REPORT_KEYS.TARGET_CAPITAL])).toBe(706616);
+  expect(Math.round(s[WebformLogic.REPORT_KEYS.MONTHLY_INVESTMENT])).toBe(1628);
 
   const m = a.report.moderate()
-  expect(Math.round(m[a.report.KEYS.ANNUAL_INCOME])).toBe(70731);
-  expect(Math.round(m[a.report.KEYS.CURRENT_ASSET])).toBe(50000);
-  expect(Math.round(m[a.report.KEYS.ASSET_AT_AGE])).toBe(160357);
-  expect(Math.round(m[a.report.KEYS.TARGET_CAPITAL])).toBe(548883);
-  expect(Math.round(m[a.report.KEYS.MONTHLY_INVESTMENT])).toBe(841);
+  expect(Math.round(m[WebformLogic.REPORT_KEYS.ANNUAL_INCOME])).toBe(70731);
+  expect(Math.round(m[WebformLogic.REPORT_KEYS.CURRENT_ASSET])).toBe(50000);
+  expect(Math.round(m[WebformLogic.REPORT_KEYS.ASSET_AT_AGE])).toBe(160357);
+  expect(Math.round(m[WebformLogic.REPORT_KEYS.TARGET_CAPITAL])).toBe(548883);
+  expect(Math.round(m[WebformLogic.REPORT_KEYS.MONTHLY_INVESTMENT])).toBe(841);
 
   const b = a.report.bold()
-  expect(Math.round(b[a.report.KEYS.ANNUAL_INCOME])).toBe(70731);
-  expect(Math.round(b[a.report.KEYS.CURRENT_ASSET])).toBe(50000);
-  expect(Math.round(b[a.report.KEYS.ASSET_AT_AGE])).toBe(233048);
-  expect(Math.round(b[a.report.KEYS.TARGET_CAPITAL])).toBe(441226);
-  expect(Math.round(b[a.report.KEYS.MONTHLY_INVESTMENT])).toBe(353);
+  expect(Math.round(b[WebformLogic.REPORT_KEYS.ANNUAL_INCOME])).toBe(70731);
+  expect(Math.round(b[WebformLogic.REPORT_KEYS.CURRENT_ASSET])).toBe(50000);
+  expect(Math.round(b[WebformLogic.REPORT_KEYS.ASSET_AT_AGE])).toBe(233048);
+  expect(Math.round(b[WebformLogic.REPORT_KEYS.TARGET_CAPITAL])).toBe(441226);
+  expect(Math.round(b[WebformLogic.REPORT_KEYS.MONTHLY_INVESTMENT])).toBe(353);
 
 
   console.log('Reports\n==========\n\nSafe:\n', s, 
@@ -86,25 +86,25 @@ it('collects the report with input values', () => {
   const input = WebformLogic.GetInput()
   const a = new WebformLogic(reference, input);
   const s = a.report.safe()
-  expect(Math.round(s[a.report.KEYS.ANNUAL_INCOME])).toBe(70731);
-  expect(Math.round(s[a.report.KEYS.CURRENT_ASSET])).toBe(50000);
-  expect(Math.round(s[a.report.KEYS.ASSET_AT_AGE])).toBe(109556);
-  expect(Math.round(s[a.report.KEYS.TARGET_CAPITAL])).toBe(706616);
-  expect(Math.round(s[a.report.KEYS.MONTHLY_INVESTMENT])).toBe(1628);
+  expect(Math.round(s[WebformLogic.REPORT_KEYS.ANNUAL_INCOME])).toBe(70731);
+  expect(Math.round(s[WebformLogic.REPORT_KEYS.CURRENT_ASSET])).toBe(50000);
+  expect(Math.round(s[WebformLogic.REPORT_KEYS.ASSET_AT_AGE])).toBe(109556);
+  expect(Math.round(s[WebformLogic.REPORT_KEYS.TARGET_CAPITAL])).toBe(706616);
+  expect(Math.round(s[WebformLogic.REPORT_KEYS.MONTHLY_INVESTMENT])).toBe(1628);
 
   const m = a.report.moderate()
-  expect(Math.round(m[a.report.KEYS.ANNUAL_INCOME])).toBe(70731);
-  expect(Math.round(m[a.report.KEYS.CURRENT_ASSET])).toBe(50000);
-  expect(Math.round(m[a.report.KEYS.ASSET_AT_AGE])).toBe(160357);
-  expect(Math.round(m[a.report.KEYS.TARGET_CAPITAL])).toBe(548883);
-  expect(Math.round(m[a.report.KEYS.MONTHLY_INVESTMENT])).toBe(841);
+  expect(Math.round(m[WebformLogic.REPORT_KEYS.ANNUAL_INCOME])).toBe(70731);
+  expect(Math.round(m[WebformLogic.REPORT_KEYS.CURRENT_ASSET])).toBe(50000);
+  expect(Math.round(m[WebformLogic.REPORT_KEYS.ASSET_AT_AGE])).toBe(160357);
+  expect(Math.round(m[WebformLogic.REPORT_KEYS.TARGET_CAPITAL])).toBe(548883);
+  expect(Math.round(m[WebformLogic.REPORT_KEYS.MONTHLY_INVESTMENT])).toBe(841);
 
   const b = a.report.bold()
-  expect(Math.round(b[a.report.KEYS.ANNUAL_INCOME])).toBe(70731);
-  expect(Math.round(b[a.report.KEYS.CURRENT_ASSET])).toBe(50000);
-  expect(Math.round(b[a.report.KEYS.ASSET_AT_AGE])).toBe(233048);
-  expect(Math.round(b[a.report.KEYS.TARGET_CAPITAL])).toBe(441226);
-  expect(Math.round(b[a.report.KEYS.MONTHLY_INVESTMENT])).toBe(353);
+  expect(Math.round(b[WebformLogic.REPORT_KEYS.ANNUAL_INCOME])).toBe(70731);
+  expect(Math.round(b[WebformLogic.REPORT_KEYS.CURRENT_ASSET])).toBe(50000);
+  expect(Math.round(b[WebformLogic.REPORT_KEYS.ASSET_AT_AGE])).toBe(233048);
+  expect(Math.round(b[WebformLogic.REPORT_KEYS.TARGET_CAPITAL])).toBe(441226);
+  expect(Math.round(b[WebformLogic.REPORT_KEYS.MONTHLY_INVESTMENT])).toBe(353);
 
 
   console.log('Reports\n==========\n\nSafe:\n', s, 
