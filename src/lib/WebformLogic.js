@@ -1,4 +1,4 @@
-import './css/App.css';
+import './css/WebformLogic.css';
 
 class Reference {
   /**
@@ -132,19 +132,29 @@ class Capital {
 }
 
 class Report {
-  KEYS = {
-    ANNUAL_INCOME: 'ANNUAL_INCOME',
-    CURRENT_ASSET: 'CURRENT_ASSET',
-    ASSET_AT_AGE: 'ASSET_AT_AGE',
-    TARGET_CAPITAL: 'TARGET_CAPITAL',
-    MONTHLY_INVESTMENT: 'MONTHLY_INVESTMENT'
-  }
   constructor(reference, input, inflation, capital) {
     this.reference = reference;
     this.input = input;
     this.inflation = inflation;
     this.capital = capital;
   }
+
+  value(key, target) {
+    switch (target) {
+      case WebformLogic.REPORT_TARGETS.SAFE:
+        return this.safe()[key];
+
+      case WebformLogic.REPORT_TARGETS.MODERATE:
+        return this.moderate()[key];
+
+      case WebformLogic.REPORT_TARGETS.BOLD:
+        return this.bold()[key];
+
+      default:
+        return null
+    }
+  }
+
 
   /**
    * Versement annuel pour accumuler
@@ -215,23 +225,29 @@ class Report {
     }
   }
 }
-class App {
-  myVar = true;
+
+class WebformLogic {
+
+  static REPORT_KEYS = {
+    ANNUAL_INCOME: 'ANNUAL_INCOME',
+    CURRENT_ASSET: 'CURRENT_ASSET',
+    ASSET_AT_AGE: 'ASSET_AT_AGE',
+    TARGET_CAPITAL: 'TARGET_CAPITAL',
+    MONTHLY_INVESTMENT: 'MONTHLY_INVESTMENT'
+  }
+
+  static REPORT_TARGETS = {
+    SAFE: 'SAFE',
+    MODERATE: 'MODERATE',
+    BOLD: 'BOLD',
+  }
 
   constructor(reference = null, input = null) {
-    const { myArrowMethod, myVar } = this;
-    // console.log("Lib constructor called", myVar);
-    myArrowMethod();
-
-    reference = reference || App.GetReference();
-    input = input || App.GetInput();
+    reference = reference || WebformLogic.GetReference();
+    input = input || WebformLogic.GetInput();
     this.inflation = new Inflation(reference, input);
     this.capital = new Capital(reference, this.inflation.finance());
     this.report = new Report(reference, input, this.inflation, this.capital)
-  }
-
-  myArrowMethod = () => {
-    // console.log("Arrow method fired");
   }
 
   static GetReference = () => {
@@ -243,4 +259,4 @@ class App {
   }
 }
 
-export default App;
+export default WebformLogic;

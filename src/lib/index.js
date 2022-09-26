@@ -1,2 +1,4 @@
-import App from './App';
-export default App;
+import WebformLogic from './WebformLogic';
+import WebformWorker from './WebformWorker';
+export default WebformLogic;
+export { WebformWorker };
