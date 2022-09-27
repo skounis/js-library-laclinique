@@ -30,14 +30,29 @@ class WebformWorker {
   startListening = () => {
     this.keys.input.forEach(element => {
       const name = element[1];
-      document.querySelector(`[name="${name}"]`).addEventListener('change', this.calculate);
+      const e = document.querySelector(`[name="${name}"]`);
+      if (!!e) {  
+        e.addEventListener('change', this.calculate);
+      }
     });
 
   }
 
+  parseValue(element) {
+    if (!element) { return 0 }
+    switch (element.type) {
+      case 'number':
+        return element.valueAsNumber || 0;
+      case 'text':
+        return parseFloat(element.value) || 0
+      default: 
+        return 0;
+    }
+  }
+
   calculate = () => {
     this.inputs = [];
-    this.decimals = document.querySelector(`[name="number_of_dec"]`).valueAsNumber || 0;
+    this.decimals = this.parseValue(document.querySelector(`[name="number_of_dec"]`));
     const reference = WebformLogic.GetReference();
     const input = WebformLogic.GetInput();
 
@@ -48,7 +63,7 @@ class WebformWorker {
     console.log(keys)
 
     keys.input.forEach(key => {
-      this.inputs[key[0]] = (isNaN(this.inputs[key[0]]) ? 0 : this.inputs[key[0]]) + document.querySelector(`[name="${key[1]}"]`).valueAsNumber;
+      this.inputs[key[0]] = (isNaN(this.inputs[key[0]]) ? 0 : this.inputs[key[0]]) + this.parseValue(document.querySelector(`[name="${key[1]}"]`));
       input[key[0]] = this.inputs[key[0]]
     });
 
