@@ -22,124 +22,125 @@
 </head>
 
 <body class="pt-5 pb-5">
-    <div class="container">
-      <h1>Investment Calculator</h1>
-      <div class="row mb-4">
-        <fieldset class="col">
-          <legend>Input</legend>
-  
-          <label>Capital 1 - Investissements enregistrés (REER' CELI' REEE etc...):</label>
-          <input class="form-control mb-3" name="civicrm_1_contact_1_cg56_custom_314"
-            id="civicrm_1_contact_1_cg56_custom_314" type="number" value="10000">
-  
-          <label>Capital 2 - Investissement CELI:</label>
-          <input class="form-control mb-3" name="civicrm_1_contact_1_cg56_custom_505"
-            id="civicrm_1_contact_1_cg56_custom_505" type="number" value="40000">
-  
-          <label>Age - À quel voulez-vous prendre votre retraite?</label>
-          <input class="form-control mb-3" name="civicrm_1_contact_1_cg117_custom_762"
-            id="civicrm_1_contact_1_cg117_custom_762" type="number" value="45">
-          <label>Annual Income - Quel revenu annuel désirez-vous au moment de votre retraite?</label>
-          <input class="form-control mb-3" name="civicrm_1_contact_1_cg117_custom_776"
-            id="civicrm_1_contact_1_cg117_custom_776" type="number" value="47600">
-  
-          <label>Number of decimals:</label>
-          <input class="form-control mb-3" name="number_of_dec"
-            id="number_of_dec" type="number" value="0">
-  
-          <!-- <div class="mt-4 d-grid gap-2">
-            <button class="btn btn-primary  btn-lg" type="button" id="calculate" name="calculate">Calculate</button>
-          </div> -->
-        </fieldset>
-      </div>
-  
-      <div class="row mb-4">
-        <fieldset class="col">
-          <legend>Result</legend>
-  
-          <table style="width: 100%">
-            <tr>
-              <td></td>
-              <th>SAFE / PRUDENT</th>
-              <th>MODERATE / MODÉRÉ</th>
-              <th>BOLD / AUDACIEUX</th>
-            </tr>
-  
-            <tr>
-              <td>Target Capital <br/> Capital à accumuler</td>
-              <td>
-                <input class="form-control" name="civicrm_1_contact_1_cg117_custom_770"
-                  id="civicrm_1_contact_1_cg117_custom_770" type="number" value="0">
-              </td>
-              <td>
-                <input class="form-control" name="civicrm_1_contact_1_cg117_custom_771"
-                  id="civicrm_1_contact_1_cg117_custom_771" type="number" value="0">
-              </td>
-              <td> 
-                <input class="form-control" name="civicrm_1_contact_1_cg117_custom_772"
-                  id="civicrm_1_contact_1_cg117_custom_772" type="number" value="0">
-              </td>
-            </tr>
-            <tr>
-              <td>Monthly Investissements <br/> Épargne mensuelle nécessaire</td>
-              <td> 
-                <input class="form-control" name="civicrm_1_contact_1_cg117_custom_773"
-                  id="civicrm_1_contact_1_cg117_custom_773" type="number" value="0">
-              </td>
-              <td> 
-                <input class="form-control" name="civicrm_1_contact_1_cg117_custom_774"
-                  id="civicrm_1_contact_1_cg117_custom_774" type="number" value="0">
-              </td>
-              <td> 
-                <input class="form-control" name="civicrm_1_contact_1_cg117_custom_775"
-                  id="civicrm_1_contact_1_cg117_custom_775" type="number" value="0">
-              </td>
-            </tr>
-          </table>
-        </fieldset>
-      </div>
-  
-  
+  <div class="container">
+    <h1>Investment Calculator</h1>
+    <div class="row mb-4">
+      <fieldset class="col">
+        <legend>Input</legend>
+
+        <label>Capital 1 - Investissements enregistrés (REER' CELI' REEE etc...):</label>
+        <input class="form-control mb-3" name="civicrm_1_contact_1_cg56_custom_314"
+          id="civicrm_1_contact_1_cg56_custom_314" type="number" value="10000">
+
+        <label>Capital 2 - Investissement CELI:</label>
+        <input class="form-control mb-3" name="civicrm_1_contact_1_cg56_custom_505"
+          id="civicrm_1_contact_1_cg56_custom_505" type="number" value="40000">
+
+        <label>Age - À quel voulez-vous prendre votre retraite?</label>
+        <input class="form-control mb-3" name="civicrm_1_contact_1_cg117_custom_762"
+          id="civicrm_1_contact_1_cg117_custom_762" type="number" value="45">
+        <label>Annual Income - Quel revenu annuel désirez-vous au moment de votre retraite?</label>
+        <input class="form-control mb-3" name="civicrm_1_contact_1_cg117_custom_776"
+          id="civicrm_1_contact_1_cg117_custom_776" type="number" value="47600">
+
+        <label>Number of decimals:</label>
+        <input class="form-control mb-3" name="number_of_dec" id="number_of_dec" type="number" value="0">
+
+        <!-- <div class="mt-4 d-grid gap-2">
+          <button class="btn btn-primary  btn-lg" type="button" id="calculate" name="calculate">Calculate</button>
+        </div> -->
+      </fieldset>
+    </div>
+
+    <div class="row mb-4">
+      <fieldset class="col">
+        <legend>Result</legend>
+
+        <table style="width: 100%">
+          <tr>
+            <td></td>
+            <th>SAFE / PRUDENT</th>
+            <th>MODERATE / MODÉRÉ</th>
+            <th>BOLD / AUDACIEUX</th>
+          </tr>
+
+          <tr>
+            <td>Target Capital <br /> Capital à accumuler</td>
+            <td>
+              <input class="form-control" name="civicrm_1_contact_1_cg117_custom_770"
+                id="civicrm_1_contact_1_cg117_custom_770" type="number" value="0">
+            </td>
+            <td>
+              <input class="form-control" name="civicrm_1_contact_1_cg117_custom_771"
+                id="civicrm_1_contact_1_cg117_custom_771" type="number" value="0">
+            </td>
+            <td>
+              <input class="form-control" name="civicrm_1_contact_1_cg117_custom_772"
+                id="civicrm_1_contact_1_cg117_custom_772" type="number" value="0">
+            </td>
+          </tr>
+          <tr>
+            <td>Monthly Investissements <br /> Épargne mensuelle nécessaire</td>
+            <td>
+              <input class="form-control" name="civicrm_1_contact_1_cg117_custom_773"
+                id="civicrm_1_contact_1_cg117_custom_773" type="number" value="0">
+            </td>
+            <td>
+              <input class="form-control" name="civicrm_1_contact_1_cg117_custom_774"
+                id="civicrm_1_contact_1_cg117_custom_774" type="number" value="0">
+            </td>
+            <td>
+              <input class="form-control" name="civicrm_1_contact_1_cg117_custom_775"
+                id="civicrm_1_contact_1_cg117_custom_775" type="number" value="0">
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+    </div>
+
+
+    <div class="row mb-4">
+      <fieldset class="col">
+        <legend>Mapping </legend>
+        <p>This is an example of how the library is linked width the form elements</p>
+        <textarea readonly rows="12" style="width: 100%">
+          input:
+          ['capital', 'civicrm_1_contact_1_cg56_custom_314'],
+          ['capital', 'civicrm_1_contact_1_cg56_custom_505'],
+          ['age', 'civicrm_1_contact_1_cg117_custom_762'],
+          ['annualIncome', 'civicrm_1_contact_1_cg117_custom_776'],
+          ['number_of_dec', 'number_of_dec']
       
-      <div class="row mb-4">
-        <fieldset class="col">
-          <legend>Mapping </legend>
-          <p>This is an example of how the library is linked width the form elements</p>
-          <textarea readonly rows="12" style="width: 100%">
-            input:
-            ['capital', 'civicrm_1_contact_1_cg56_custom_314'],
-            ['capital', 'civicrm_1_contact_1_cg56_custom_505'],
-            ['age', 'civicrm_1_contact_1_cg117_custom_762'],
-            ['annualIncome', 'civicrm_1_contact_1_cg117_custom_776'],
-            ['number_of_dec', 'number_of_dec']
-        
-          output:
-            ['TARGET_CAPITAL__SAFE', 'civicrm_1_contact_1_cg117_custom_770'],
-            ['TARGET_CAPITAL__MODERATE', 'civicrm_1_contact_1_cg117_custom_771'],
-            ['TARGET_CAPITAL__BOLD', 'civicrm_1_contact_1_cg117_custom_772'],
-            ['MONTHLY_INVESTMENT__SAFE', 'civicrm_1_contact_1_cg117_custom_773'],
-            ['MONTHLY_INVESTMENT__MODERATE', 'civicrm_1_contact_1_cg117_custom_774'],
-            ['MONTHLY_INVESTMENT__BOLD', 'civicrm_1_contact_1_cg117_custom_775']
-          </textarea>
-        </fieldset>
-      </div>
-  
-  
-  
-      <noscript>You need to enable JavaScript to run this app.</noscript>
-      <script>
-        console.log('Library:   ', window.WebformLogic)
-        let WebformLogic = window.WebformLogic.default;
-        console.log('Class: ', WebformLogic);
-        document.addEventListener('DOMContentLoaded', function(event) {
-          let worker = new window.WebformLogic.WebformWorker();
-        })
-  
-  
-          // new myLibrary().myArrowMethod();
-          // let libraryInstance = new MyLibrary();
-      </script>
-  
-  </body>
+        output:
+          ['TARGET_CAPITAL__SAFE', 'civicrm_1_contact_1_cg117_custom_770'],
+          ['TARGET_CAPITAL__MODERATE', 'civicrm_1_contact_1_cg117_custom_771'],
+          ['TARGET_CAPITAL__BOLD', 'civicrm_1_contact_1_cg117_custom_772'],
+          ['MONTHLY_INVESTMENT__SAFE', 'civicrm_1_contact_1_cg117_custom_773'],
+          ['MONTHLY_INVESTMENT__MODERATE', 'civicrm_1_contact_1_cg117_custom_774'],
+          ['MONTHLY_INVESTMENT__BOLD', 'civicrm_1_contact_1_cg117_custom_775']
+        </textarea>
+      </fieldset>
+    </div>
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      console.log('Library: ', window.WebformLogic)
+      let WebformLogic = window.WebformLogic.default;
+      console.log('Class: ', WebformLogic);
+      document.addEventListener('DOMContentLoaded', function (event) {
+        let keys;
+        // keys = window.WebformLogic.WebformWorker.DEFAULT_KEYS;
+        // keys.input = [
+        //   ['capital', 'civicrm_1_contact_1_cg56_custom_314'],
+        //   ['capital', 'civicrm_1_contact_1_cg56_custom_505'],
+        //   ['age', 'civicrm_1_contact_1_cg117_custom_762'],
+        //   ['annualIncome', 'civicrm_1_contact_1_cg117_custom_776'],
+        //   ['number_of_dec', 'number_of_dec']
+        // ]
+        let worker = new window.WebformLogic.WebformWorker(keys);
+      })
+    </script>
+
+</body>
 
 </html>

@@ -128,8 +128,16 @@
       let WebformLogic = window.WebformLogic.default;
       console.log('Class: ', WebformLogic);
       document.addEventListener('DOMContentLoaded', function (event) {
-        let keys = window.WebformLogic.WebformWorker.DEFAULT_KEYS;
-        let worker = new window.WebformLogic.WebformWorker();
+        let keys;
+        // keys = window.WebformLogic.WebformWorker.DEFAULT_KEYS;
+        // keys.input = [
+        //   ['capital', 'civicrm_1_contact_1_cg56_custom_314'],
+        //   ['capital', 'civicrm_1_contact_1_cg56_custom_505'],
+        //   ['age', 'civicrm_1_contact_1_cg117_custom_762'],
+        //   ['annualIncome', 'civicrm_1_contact_1_cg117_custom_776'],
+        //   ['number_of_dec', 'number_of_dec']
+        // ]
+        let worker = new window.WebformLogic.WebformWorker(keys);
       })
     </script>
 
