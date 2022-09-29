@@ -1,6 +1,6 @@
 {
   "name": "@skounis/js-laclinique-webform-logic",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Webform Calculations for La Clinique Financiere",
   "main": "build/index.js",
   "scripts": {
