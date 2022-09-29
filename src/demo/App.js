@@ -46,7 +46,6 @@ class App {
     const libInstance = new Lib(reference, input);
     const report = libInstance.report;
     console.log(report)
-    const b = report.bold()
     Object.keys(report.KEYS).forEach((key) => {
       document.getElementById(`${key}[safe]`).value = report.safe()[key];
       document.getElementById(`${key}[moderate]`).value = report.moderate()[key];

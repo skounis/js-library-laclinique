@@ -1,7 +1,7 @@
 {
-  "name": "@skounis/js-library-laclinique",
+  "name": "@skounis/js-laclinique-webform-logic",
   "version": "0.0.5",
-  "description": "Javascript Starter Kit for building libraries",
+  "description": "Webform Calculations for La Clinique Financiere",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
