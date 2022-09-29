@@ -1,7 +1,7 @@
 import WebformLogic from './WebformLogic';
 
 class WebformWorker {
-  keys = {
+  static DEFAULT_KEYS = {
     input: [
       ['capital', 'civicrm_1_contact_1_cg56_custom_314'],
       ['capital', 'civicrm_1_contact_1_cg56_custom_505'],
@@ -17,12 +17,15 @@ class WebformWorker {
       ['MONTHLY_INVESTMENT__MODERATE', 'civicrm_1_contact_1_cg117_custom_774'],
       ['MONTHLY_INVESTMENT__BOLD', 'civicrm_1_contact_1_cg117_custom_775']
     ]
-  }
+  };
+
+  keys = { }
 
   inputs = [];
   decimals = 0;
 
-  constructor() {
+  constructor(keys = null) {
+    this.keys = keys || WebformWorker.DEFAULT_KEYS;
     this.startListening();
     this.calculate();
   }
@@ -30,14 +33,34 @@ class WebformWorker {
   startListening = () => {
     this.keys.input.forEach(element => {
       const name = element[1];
-      document.querySelector(`[name="${name}"]`).addEventListener('change', this.calculate);
+      const e = document.querySelector(`[name="${name}"]`);
+      if (!!e) {
+        e.addEventListener('change', this.calculate);
+      }
     });
 
   }
 
+  parseValue(element) {
+    if (!element) { return 0 }
+    switch (element.type) {
+      case 'number':
+        return element.valueAsNumber || 0;
+      case 'text':
+        return parseFloat(element.value) || 0
+      default:
+        return 0;
+    }
+  }
+
+  format(value, decimals) {
+    value = value.toFixed(decimals);
+    return value < 0 ? 0 : value;
+  } 
+
   calculate = () => {
     this.inputs = [];
-    this.decimals = document.querySelector(`[name="number_of_dec"]`).valueAsNumber || 0;
+    this.decimals = this.parseValue(document.querySelector(`[name="number_of_dec"]`));
     const reference = WebformLogic.GetReference();
     const input = WebformLogic.GetInput();
 
@@ -48,7 +71,7 @@ class WebformWorker {
     console.log(keys)
 
     keys.input.forEach(key => {
-      this.inputs[key[0]] = (isNaN(this.inputs[key[0]]) ? 0 : this.inputs[key[0]]) + document.querySelector(`[name="${key[1]}"]`).valueAsNumber;
+      this.inputs[key[0]] = (isNaN(this.inputs[key[0]]) ? 0 : this.inputs[key[0]]) + this.parseValue(document.querySelector(`[name="${key[1]}"]`));
       input[key[0]] = this.inputs[key[0]]
     });
 
@@ -65,7 +88,7 @@ class WebformWorker {
       const key = slots[0];
       const target = slots[1];
       const value = report.value(key, target);
-      document.querySelector(`[name="${name}"]`).value = value.toFixed(this.decimals);
+      document.querySelector(`[name="${name}"]`).value = this.format(value, this.decimals)
     });
   }
 }

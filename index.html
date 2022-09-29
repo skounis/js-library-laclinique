@@ -44,8 +44,7 @@
           id="civicrm_1_contact_1_cg117_custom_776" type="number" value="47600">
 
         <label>Number of decimals:</label>
-        <input class="form-control mb-3" name="number_of_dec"
-          id="number_of_dec" type="number" value="0">
+        <input class="form-control mb-3" name="number_of_dec" id="number_of_dec" type="number" value="0">
 
         <!-- <div class="mt-4 d-grid gap-2">
           <button class="btn btn-primary  btn-lg" type="button" id="calculate" name="calculate">Calculate</button>
@@ -66,7 +65,7 @@
           </tr>
 
           <tr>
-            <td>Target Capital <br/> Capital à accumuler</td>
+            <td>Target Capital <br /> Capital à accumuler</td>
             <td>
               <input class="form-control" name="civicrm_1_contact_1_cg117_custom_770"
                 id="civicrm_1_contact_1_cg117_custom_770" type="number" value="0">
@@ -75,22 +74,22 @@
               <input class="form-control" name="civicrm_1_contact_1_cg117_custom_771"
                 id="civicrm_1_contact_1_cg117_custom_771" type="number" value="0">
             </td>
-            <td> 
+            <td>
               <input class="form-control" name="civicrm_1_contact_1_cg117_custom_772"
                 id="civicrm_1_contact_1_cg117_custom_772" type="number" value="0">
             </td>
           </tr>
           <tr>
-            <td>Monthly Investissements <br/> Épargne mensuelle nécessaire</td>
-            <td> 
+            <td>Monthly Investissements <br /> Épargne mensuelle nécessaire</td>
+            <td>
               <input class="form-control" name="civicrm_1_contact_1_cg117_custom_773"
                 id="civicrm_1_contact_1_cg117_custom_773" type="number" value="0">
             </td>
-            <td> 
+            <td>
               <input class="form-control" name="civicrm_1_contact_1_cg117_custom_774"
                 id="civicrm_1_contact_1_cg117_custom_774" type="number" value="0">
             </td>
-            <td> 
+            <td>
               <input class="form-control" name="civicrm_1_contact_1_cg117_custom_775"
                 id="civicrm_1_contact_1_cg117_custom_775" type="number" value="0">
             </td>
@@ -100,7 +99,6 @@
     </div>
 
 
-    
     <div class="row mb-4">
       <fieldset class="col">
         <legend>Mapping </legend>
@@ -124,20 +122,15 @@
       </fieldset>
     </div>
 
-
-
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script>
-      console.log('Library:   ', window.WebformLogic)
+      console.log('Library: ', window.WebformLogic)
       let WebformLogic = window.WebformLogic.default;
       console.log('Class: ', WebformLogic);
-      document.addEventListener('DOMContentLoaded', function(event) {
+      document.addEventListener('DOMContentLoaded', function (event) {
+        let keys = window.WebformLogic.WebformWorker.DEFAULT_KEYS;
         let worker = new window.WebformLogic.WebformWorker();
       })
-
-
-        // new myLibrary().myArrowMethod();
-        // let libraryInstance = new MyLibrary();
     </script>
 
 </body>
