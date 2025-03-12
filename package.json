@@ -80,7 +80,7 @@
     "web-vitals": "^2.1.4",
     "webpack": "^5.74.0",
     "webpack-dev-server": "^4.10.0",
-    "webpack-manifest-plugin": "^5.0.0",
+    "webpack-manifest-plugin": "^5.0.1",
     "workbox-webpack-plugin": "^6.5.4"
   },
   "eslintConfig": {
